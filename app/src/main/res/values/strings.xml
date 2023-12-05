@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="app_name">purrsonalcatapp</string>
+    <string name="login">Login</string>
+    <string name="message_login_page">Welcome to purrsonal cat</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="welcome">Welcome</string>
+    <string name="name">Name</string>
+    <string name="title_register_page">Register</string>
+    <string name="search_main" tools:ignore="ExtraTranslation">Search</string>
+    <string name="todo">imageregister</string>
+</resources>
