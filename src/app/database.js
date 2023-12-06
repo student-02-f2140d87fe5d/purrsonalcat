@@ -10,6 +10,11 @@ const sequelize = new Sequelize(db.name, db.user, db.password, {
   define: {
     timestamps: true,
   },
+  pool: {
+    max: 5,
+    min: 0,
+    idle: 10000,
+  },
 });
 
 (async () => {
