@@ -1,0 +1,193 @@
+{
+    "openapi":"3.0.2",
+    "info": {
+      "title":"Pursonal Cat API",
+      "version":"1.0",
+      "description": "API for detection of cat diseases"
+    },
+    "servers": [
+      {"url":"http://localhost:3000/api/v1"}
+    ],
+    "paths": {
+      "/auth/login": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "Login",
+          "description": "Login",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "john@doe.com"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "123456"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "accessToken": {
+                        "type": "string",
+                        "example": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "401": {
+              "description": "Unauthorized"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/auth/register": {
+        "post": {
+          "tags": ["Auth"],
+          "summary": "Register",
+          "description": "Register",
+          "requestBody": {
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "email": {
+                      "type": "string",
+                      "example": "john@doe.com"
+                    },
+                    "username": {
+                      "type": "string",
+                      "example": "John Doe"
+                    },
+                    "password": {
+                      "type": "string",
+                      "example": "123456"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "5f9b3b3b9d7a3b2b3c7d7b3b"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "john@doe.com"
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "John Doe"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2020-10-30T14:00:00.000Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2020-10-30T14:00:00.000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            },
+            "400": {
+              "description": "Bad Request"
+            },
+            "401": {
+              "description": "Unauthorized"
+            },
+            "500": {
+              "description": "Internal Server Error"
+            }
+          }
+        }
+      },
+      "/auth/me": {
+        "get": {
+          "tags": ["Auth"],
+          "summary": "Get user info",
+          "description": "Get user info",
+          "security": [
+            {
+              "bearerAuth": []
+            }],
+          "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                  "schema": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "example": "5f9b3b3b9d7a3b2b3c7d7b3b"
+                      },
+                      "email": {
+                        "type": "string",
+                        "example": "john@doe.com"
+                      },
+                      "username": {
+                        "type": "string",
+                        "example": "John Doe"
+                      },
+                      "createdAt": {
+                        "type": "string",
+                        "example": "2020-10-30T14:00:00.000Z"
+                      },
+                      "updatedAt": {
+                        "type": "string",
+                        "example": "2020-10-30T14:00:00.000Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "components": {
+      "securitySchemes": {
+        "bearerAuth": {
+          "type": "http",
+          "scheme": "bearer",
+          "bearerFormat": "JWT"
+        }
+      }
+    }
+  }
