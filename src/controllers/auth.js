@@ -7,6 +7,8 @@ const {
 const { BAD_REQUEST } = require('../errors');
 const { User } = require('../models');
 
+const { success } = require('../app/formatter');
+
 const register = async (req, res, next) => {
   try {
     const { username, email, password } = req.body;
@@ -16,7 +18,7 @@ const register = async (req, res, next) => {
 
     delete user.dataValues.password;
 
-    res.status(201).json(user);
+    res.status(201).json(success(user, 'Register success'));
   } catch (error) {
     next(error);
   }
@@ -25,7 +27,7 @@ const register = async (req, res, next) => {
 const login = async (req, res, next) => {
   try {
     const { email, password } = req.body;
-    // const accessToken = await User.login(email, password);
+
     const user = await User.scope('withPassword').findOne({ where: { email } });
     if (!user) throw new BAD_REQUEST('Email or password is wrong.');
 
@@ -34,7 +36,10 @@ const login = async (req, res, next) => {
 
     const payload = { id: user.id, username: user.username, email: user.email };
     const token = jwt.sign(payload, secret, { expiresIn });
-    res.status(200).json({ accessToken: token });
+
+    payload.token = token;
+
+    res.status(200).json(success(payload, 'Login success'));
   } catch (error) {
     next(error);
   }
@@ -43,7 +48,7 @@ const login = async (req, res, next) => {
 const me = async (req, res, next) => {
   try {
     const { user } = req;
-    res.status(200).json(user);
+    res.status(200).json(success(user, 'Get user success'));
   } catch (error) {
     next(error);
   }
