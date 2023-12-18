@@ -38,7 +38,7 @@ class LoginActivity : AppCompatActivity() {
     private fun setupLogin() {
         val token = runBlocking { authPreferences.authToken.first() }
         val apiService = ApiConfig.getApiService(token)
-        val repository = AuthRepository(apiService)
+        val repository = AuthRepository(apiService, authPreferences)
         viewModel = ViewModelProvider(this, AuthViewModelFactory(repository, authPreferences)).get(
             LoginViewModel::class.java
         )

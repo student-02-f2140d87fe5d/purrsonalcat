@@ -43,7 +43,7 @@ class RegisterActivity : AppCompatActivity() {
         lifecycleScope.launch {
             val token = authPreferences.authToken.first()
             val apiService = ApiConfig.getApiService(token)
-            val repository = AuthRepository(apiService)
+            val repository = AuthRepository(apiService, authPreferences)
             viewModel =
                 ViewModelProvider(this@RegisterActivity, AuthViewModelFactory(repository)).get(
                     RegisterViewModel::class.java
