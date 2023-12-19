@@ -22,6 +22,8 @@ const config = {
   bcrypt: {
     salfRound: process.env.BCRYPT_SALT_ROUND || 13,
   },
+
+  predictionUrl: process.env.PREDICTION_URL || 'http://localhost:5000/predict',
 };
 
 module.exports = config;

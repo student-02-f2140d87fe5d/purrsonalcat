@@ -4,7 +4,7 @@ const {
   jwt: { secret },
 } = require('../app/config');
 
-module.exports = async function validate(req, res, next) {
+module.exports = function validate(req, res, next) {
   try {
     const { authorization } = req.headers;
 
@@ -12,12 +12,11 @@ module.exports = async function validate(req, res, next) {
     const token = authorization.split(' ')[1];
 
     if (!token) throw new UNAUTHORIZED('You need to login first.');
-    const decoded = jwt.decode(token, secret);
-
-    if (!decoded) throw new UNAUTHORIZED('You need to login first.');
-
-    req.user = decoded;
-    next();
+    jwt.verify(token, secret, (err, verified) => {
+      if (err) throw new UNAUTHORIZED(err.message || 'You need to login first');
+      req.user = verified;
+      next();
+    });
   } catch (error) {
     next(error);
   }

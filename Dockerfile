@@ -9,5 +9,7 @@ ENV DB_NAME=nodejs
 ENV DB_USER=root
 ENV DB_PASSWORD=secret
 
+ENV PREDICTION_URL=http://localhost:5000/predict
+
 EXPOSE 3030
 CMD ["npm", "start"]
