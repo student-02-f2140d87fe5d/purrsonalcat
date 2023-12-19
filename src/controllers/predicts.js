@@ -57,7 +57,6 @@ const processQuestion = async (req, res, next) => {
   try {
     const { answer } = req.body;
 
-    console.log(answer);
     const response = await fetch(predictionUrl, {
       method: 'POST',
       headers: {
@@ -70,7 +69,6 @@ const processQuestion = async (req, res, next) => {
 
     res.json(success({ predictions: predictions[0] }));
   } catch (error) {
-    console.error(error);
     next(error);
   }
 };
