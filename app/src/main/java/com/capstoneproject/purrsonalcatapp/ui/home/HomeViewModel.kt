@@ -7,7 +7,7 @@ import com.capstoneproject.purrsonalcatapp.data.repository.AuthRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.launch
 
-class MainViewModel(private val authRepository: AuthRepository) : ViewModel() {
+class HomeViewModel(private val authRepository: AuthRepository) : ViewModel() {
     private val _userData = MutableStateFlow<UserResponse?>(null)
     val userData = _userData
 

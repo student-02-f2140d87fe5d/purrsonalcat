@@ -6,15 +6,13 @@ import android.os.Bundle
 import android.util.Log
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
-import com.capstoneproject.purrsonalcatapp.R
 import com.capstoneproject.purrsonalcatapp.data.local.pref.AuthPreferences
 import com.capstoneproject.purrsonalcatapp.data.local.pref.dataStore
 import com.capstoneproject.purrsonalcatapp.data.remote.retrofit.ApiConfig
 import com.capstoneproject.purrsonalcatapp.data.repository.AuthRepository
 import com.capstoneproject.purrsonalcatapp.databinding.ActivityLoginBinding
 import com.capstoneproject.purrsonalcatapp.ui.AuthViewModelFactory
-import com.capstoneproject.purrsonalcatapp.ui.home.MainActivity
-import kotlinx.coroutines.flow.collect
+import com.capstoneproject.purrsonalcatapp.ui.main.MainActivity
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.runBlocking

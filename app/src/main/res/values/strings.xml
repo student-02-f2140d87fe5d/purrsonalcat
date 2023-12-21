@@ -10,7 +10,6 @@
     <string name="title_register_page">Register</string>
     <string name="search_main" tools:ignore="ExtraTranslation">Search</string>
     <string name="todo">imageregister</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_activity_account">AccountActivity</string>
     <!-- Strings used for fragments for navigation -->
@@ -55,4 +54,7 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+    <string name="gejala">Gejala Kucing Anda</string>
+    <string name="diagnosis">symptom</string>
+    <string name="disease">Disease</string>
 </resources>
